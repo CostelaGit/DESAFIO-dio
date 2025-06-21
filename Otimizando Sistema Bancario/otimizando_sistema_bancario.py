@@ -1,19 +1,7 @@
-menu = """
-
-[d] Depositar
-[s] Sacar
-[e] Extrato
-[q] Sair
-
-=> """
-
 #position: * | keywords: **
 
 
 # def saque(**saldo,**valor,**extrato,**limite,**numero_saques,**limite_saques)
-# sugestão de retorno: saldo e extrato
-
-# def deposito(*saldo, *valor, *extrato)
 # sugestão de retorno: saldo e extrato
 
 # def extrato(*saldo,**extrato)
@@ -37,6 +25,48 @@ menu = """
 # filtre a lista de usuarios buscando o numero do cpf informado para cada usuario
 # da lista
 
+def menu():
+    menu = """
+
+[d] Depositar
+[s] Sacar
+[e] Extrato
+[nu] Novo Usuario
+[nc] Nova Conta
+[lc] Lista conta
+[q] Sair
+
+=> """
+    return menu
+
+def depositar(saldo, valor, extrato, /):
+    if valor > 0:
+        saldo += valor
+        extrato += f'Deposito R${valor:.2f}\n'
+    else:
+        print('a operação falhou. o valor informado foi invalido!')
+    
+    return saldo, extrato
+    
+def exibir_extrato(saldo, /, *, extrato):
+    print("\n================ EXTRATO ================")
+    print("Não foram realizadas movimentações." if not extrato else extrato)
+    print(f"\nSaldo: R$ {saldo:.2f}")
+    print("==========================================")
+
+"""
+def sacar():
+
+def exibir_extrato():
+
+def criar_usuario():
+
+def filtrar_usuario():
+
+def criar_conta():
+
+def listar_contas():"""
+
 
 def main():
     saldo = 0
@@ -47,17 +77,11 @@ def main():
 
     while True:
 
-        opcao = input(menu)
+        opcao = input(menu())
 
         if opcao == "d":
-            valor = float(input("Informe o valor do depósito: "))
-
-            if valor > 0:
-                saldo += valor
-                extrato += f"Depósito: R$ {valor:.2f}\n"
-
-            else:
-                print("Operação falhou! O valor informado é inválido.")
+            valor = int(input('digite o quanto você deseja depositar: '))
+            saldo, extrato = depositar(saldo, valor, extrato)
 
         elif opcao == "s":
             valor = float(input("Informe o valor do saque: "))
@@ -86,16 +110,25 @@ def main():
                 print("Operação falhou! O valor informado é inválido.")
 
         elif opcao == "e":
-            print("\n================ EXTRATO ================")
-            print("Não foram realizadas movimentações." if not extrato else extrato)
-            print(f"\nSaldo: R$ {saldo:.2f}")
-            print("==========================================")
+            exibir_extrato(saldo, extrato=extrato)
 
         elif opcao == "q":
             break
 
+        
+        elif opcao == "nu":
+            pass
+        
+        elif opcao == "nc":
+            pass
+        
+        elif opcao == "lc":
+            pass
+
         else:
             print("Operação inválida, por favor selecione novamente a operação desejada.")
+        
 
+            
 
-
+main()
