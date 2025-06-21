@@ -64,3 +64,31 @@ while True:
 
     else:
         print("Operação inválida, por favor selecione novamente a operação desejada.")
+
+
+
+# def saque(**saldo,**valor,**extrato,**limite,**numero_saques,**limite_saques)
+# sugestão de retorno: saldo e extrato
+
+# def deposito(*saldo, *valor, *extrato)
+# sugestão de retorno: saldo e extrato
+
+# def extrato(*saldo,**extrato)
+
+# tem que se criar 2 funções, criar usuario e criar conta
+# def criarusuario()
+# possui: nome, data_nascimento, cpf, endereço,
+# endereço: logradouro, bairro, cidade/sigla estado
+# deve ser armazenado somente os numeros do cpf .. não se pode cadastrar 2 usuarios com cpfs iguais
+
+# def criarcontacorrente()
+# armazenar contas em 1 lista
+# possui: agencia, numero da conta, usuario
+# numero da conta sequencial, iniciando em 1
+# numero da agencia é fixo: 0001
+# usuario pode ter mais de 1 conta, mas uma conta só pode ter 1 usuario
+
+
+# dica: vincular um usuario a uma conta, 
+# filtre a lista de usuarios buscando o numero do cpf informado para cada usuario
+# da lista
